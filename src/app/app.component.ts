@@ -36,11 +36,21 @@ export class AppComponent implements OnInit {
 		this.service.setLocalStorage(this.firstName, this.lastName);
 		console.log(this.lastName);
 	}
+	getStorageItem(values){
+		
+	}
 	
 	
 	
 	
 	ngOnInit():void{
-
+		
+		// if (localStorage.length > 0) {
+		// 	// We have items
+		// 	this.getStorageItem()
+		// 	console.log('LocalStorage is not empty')
+		//   } else {
+		// 	console.log('localStorage is not empty')
+		//   }
 	}
 }
