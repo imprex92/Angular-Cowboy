@@ -1,0 +1,16 @@
+<p>
+  {{ title }}
+</p>
+
+<div class="container">
+  <h3> {{ message }}</h3>
+
+<form>
+	<input type="text" id="firstName" placeholder="Enter firstname" [disabled]="formSubmitted" (keyup)="firstNameInput($event)">
+	<input type="text" id="lastName" placeholder="Enter lastname" [disabled]="formSubmitted" (keyup)="lastNameInput($event)">
+</form>
+<p></p>
+<button type="submit" id="nameSubmitButton" [disabled]="clickedButton" (click)="handleSaveName()">Submit Name</button>
+</div>
+
+<app-select-beverage></app-select-beverage>

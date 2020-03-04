@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-// import { AppComponent } from './app.component';
+
+
 
 @Injectable({
 	providedIn: 'root'
@@ -14,19 +15,34 @@ export class LocalStorageService {
 		this.lastName = lastName
 		localStorage.setItem('LastName', JSON.stringify(lastName));
 	}
-	getLocalStorage(values):any{
+	getLocalStorage(lastName: string, firstName: string):string {
+		
+
 		if (localStorage.length > 0) {
 			// We have items
+			let firstName = localStorage.getItem('Name')
+			if(?) {
+
+			}
+			let name = localStorage.getItem('LastName');
+			if(?){
+				
+			}
+			console.log(localStorage.Name);
+			
 			console.log('LocalStorage is not empty')
-			this.appComponent.getStorageItem(values)
+		
+			return name + firstName;
+			
+			
 		  } else {
 			console.log('localStorage is empty')
+			return undefined
 		  }
-		this.values = values;
-		console.log(values)
+
 	}
 
 
-constructor(public appComponent: AppComponent) { }
+
 
 }

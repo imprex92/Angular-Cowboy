@@ -4,15 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { StorageComponent } from './storage/storage.component';
 import { LocalStorageService } from "./localStorage.service";
+import { DialogComponent } from './dialog/dialog.component';
+import { SelectBeverageComponent } from './select-beverage/select-beverage.component';
 @NgModule({
    declarations: [
       AppComponent,
-      StorageComponent
+      StorageComponent,
+      DialogComponent,
+      SelectBeverageComponent
    ],
    imports: [
       BrowserModule
    ],
-   providers: [LocalStorageService],
+   providers: [
+      LocalStorageService,
+      DialogComponent
+   ],
    bootstrap: [
       AppComponent
    ]
