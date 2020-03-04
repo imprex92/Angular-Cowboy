@@ -11,7 +11,7 @@ export class DialogComponent implements OnInit {
 	title = 'Angular-Cowboy';
 	clickedButton: boolean = false;
 	formSubmitted: boolean = false;
-	customerKnownBoolean: boolean = false;
+	customerKnownBoolean: boolean;
 	firstName: string = '';
 	lastName: string = '';
 	message: string = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
@@ -34,28 +34,29 @@ export class DialogComponent implements OnInit {
 		console.log(this.lastName);
 	}
 	handleSaveName(){
-		this.service.setLocalStorage(this.firstName, this.lastName);
+		this.service.setLocalStorage(this.firstName, this.lastName, this.customerKnownBoolean);
 		console.log(this.lastName);
 		this.clickedButton = true;
 		this.formSubmitted = true;
-		this.customerKnownBoolean = false;
+		this.customerKnownBoolean = true;
 		this.message = 'Ah, Can I get you something Warlock ' + this.lastName + '?'
 	}
 	getStorageItem(){
-		this.service.getLocalStorage(this.lastName, this.firstName)
+		this.service.getLocalStorage(this.lastName, this.firstName, this.customerKnownBoolean)
 		console.log(this.firstName, this.lastName)
 	}
-  	ngOnInit() {
+  	ngOnInit() { // Någonting gå illa här!
 		this.getStorageItem()
-		if(!this.getStorageItem){
-			console.log('Nothing is inside storage ', localStorage.LastName);
-			this.customerKnownBoolean = false;
+		if(this.customerKnownBoolean){
+			console.log('Nothing is inside storage ', localStorage.LastName, localStorage.customerKnownBoolean);
+			// this.customerKnownBoolean = false;
 			this.message = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
-		}else{
+		}else if(this.getStorageItem){
 			console.log('This is inside storage ', localStorage.Name, localStorage.LastName);
 			this.firstName = localStorage.Name;
 			this.lastName = localStorage.LastName;
-			this.customerKnownBoolean = true;
+			this.customerKnownBoolean = localStorage.customerKnownBoolean;
+			console.log(this.customerKnownBoolean, this.firstName, this.lastName);			
 			this.message = 'Hello again, Mr/Mrs. ' + this.lastName;
 		}
     	

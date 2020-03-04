@@ -12,5 +12,8 @@ defaultBeverages: Beverages[] = [
 {name: 'Mexican Mule'}
 ]
 constructor() { }
-
+getBeveragelist(defaultBeverages){
+  
+  return defaultBeverages
+}
 }

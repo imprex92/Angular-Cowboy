@@ -1,0 +1,12 @@
+.beveragesList{
+    background-color: lightsalmon;
+}
+.beveragesItem{
+    padding: 1em;
+}
+.beveragesList:nth-child(odd){
+    background-color: lightgray;
+}
+.beveragesList:nth-child(even){
+    background-color: whitesmoke;
+}

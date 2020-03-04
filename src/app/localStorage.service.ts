@@ -9,31 +9,37 @@ export class LocalStorageService {
 	private firstName: string;
 	private lastName: string;
 	private values: string;
-	setLocalStorage(firstName, lastName):any {
+	private customDrink: string
+	private customerKnownBoolean: boolean;
+	setLocalStorage(firstName:string, lastName:string, customerKnownBoolean:boolean):any {
 		this.firstName = firstName
-		localStorage.setItem('Name', JSON.stringify(firstName));
+		localStorage.setItem('Name', firstName);
+
+		localStorage.setItem('customerKnownBoolean', 'true')
 		this.lastName = lastName
-		localStorage.setItem('LastName', JSON.stringify(lastName));
+		localStorage.setItem('LastName', lastName);
 	}
-	getLocalStorage(lastName: string, firstName: string):string {
+	saveDrink(customDrink:string){
+		this.customDrink = customDrink;
+		localStorage.setItem('name', customDrink)
+		console.log(customDrink);
+		
+	}
+	getLocalStorage(firstName: string, lastName: string, customerKnownBoolean: boolean):string {
 		
 
-		if (localStorage.length > 0) {
+		if (localStorage) {
 			// We have items
 			let firstName = localStorage.getItem('Name')
-			if(?) {
-
+			let lastName = localStorage.getItem('LastName');
+			let customerKnownBoolean = localStorage.getItem('customerKnownBoolean')
+			if(firstName == undefined && lastName == undefined) {
+				return undefined;
+			} else if(firstName == undefined || lastName){
+				return undefined
+			}else {
+				return firstName + lastName + customerKnownBoolean;
 			}
-			let name = localStorage.getItem('LastName');
-			if(?){
-				
-			}
-			console.log(localStorage.Name);
-			
-			console.log('LocalStorage is not empty')
-		
-			return name + firstName;
-			
 			
 		  } else {
 			console.log('localStorage is empty')

@@ -1,3 +1,15 @@
 <p>
   select-beverage works!
 </p>
+<div class="beveragesList" *ngFor="let beverage of defaultBeverages">
+  <div class="beveragesItem">
+    {{beverage.name}} 
+      <button type="submit">
+        Select drink
+      </button>
+  </div>
+</div>
+    <form>
+      <input type="text" placeholder="Custom drink" id="CustomDrinkButton" (keyup)="customDrinkInput($event)">
+    </form>
+    <button type="submit" (click)="submitDrink()" (click)="saveDrink(customDrink)">Propose drink</button>
