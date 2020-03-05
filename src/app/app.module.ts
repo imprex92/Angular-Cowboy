@@ -6,12 +6,14 @@ import { StorageComponent } from './storage/storage.component';
 import { LocalStorageService } from "./localStorage.service";
 import { DialogComponent } from './dialog/dialog.component';
 import { SelectBeverageComponent } from './select-beverage/select-beverage.component';
+import { TheUsualComponent } from './the-usual/the-usual.component';
 @NgModule({
    declarations: [
       AppComponent,
       StorageComponent,
       DialogComponent,
-      SelectBeverageComponent
+      SelectBeverageComponent,
+      TheUsualComponent
    ],
    imports: [
       BrowserModule

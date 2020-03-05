@@ -4,7 +4,7 @@
 <div class="beveragesList" *ngFor="let beverage of defaultBeverages">
   <div class="beveragesItem">
     {{beverage.name}} 
-      <button type="submit">
+      <button type="submit" (click)="userChoice(beverage)">
         Select drink
       </button>
   </div>

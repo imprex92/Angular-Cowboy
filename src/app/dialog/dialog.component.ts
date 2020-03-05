@@ -14,7 +14,8 @@ export class DialogComponent implements OnInit {
 	customerKnownBoolean: boolean;
 	firstName: string = '';
 	lastName: string = '';
-	message: string = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
+	message: string;
+	message1: string = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
 	
 	
   constructor(public service:LocalStorageService) { }
@@ -47,9 +48,9 @@ export class DialogComponent implements OnInit {
 	}
   	ngOnInit() { // Någonting gå illa här!
 		this.getStorageItem()
-		if(this.customerKnownBoolean){
+		if(!this.getStorageItem){
 			console.log('Nothing is inside storage ', localStorage.LastName, localStorage.customerKnownBoolean);
-			// this.customerKnownBoolean = false;
+			this.customerKnownBoolean = false;
 			this.message = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
 		}else if(this.getStorageItem){
 			console.log('This is inside storage ', localStorage.Name, localStorage.LastName);
@@ -60,6 +61,6 @@ export class DialogComponent implements OnInit {
 			this.message = 'Hello again, Mr/Mrs. ' + this.lastName;
 		}
     	
-}
+	}
 
 }

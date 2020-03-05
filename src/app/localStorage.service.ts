@@ -25,6 +25,13 @@ export class LocalStorageService {
 		console.log(customDrink);
 		
 	}
+	setSelectedDrink(selectedDrink){
+		localStorage.setItem('selectedDrink', selectedDrink);
+	}
+	getSelectedDrink(){		
+		
+		return JSON.parse(localStorage.getItem('selectedDrink.value.name'));
+	}
 	getLocalStorage(firstName: string, lastName: string, customerKnownBoolean: boolean):string {
 		
 
@@ -41,10 +48,10 @@ export class LocalStorageService {
 				return firstName + lastName + customerKnownBoolean;
 			}
 			
-		  } else {
+		} else {
 			console.log('localStorage is empty')
 			return undefined
-		  }
+		}
 
 	}
 
