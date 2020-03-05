@@ -25,12 +25,12 @@ export class LocalStorageService {
 		console.log(customDrink);
 		
 	}
-	setSelectedDrink(selectedDrink){
-		localStorage.setItem('selectedDrink', selectedDrink);
+	setSelectedDrink(selectedChoise){
+		localStorage.setItem('selectedDrink', selectedChoise);
 	}
 	getSelectedDrink(){		
 		
-		return JSON.parse(localStorage.getItem('selectedDrink.value.name'));
+		return localStorage.getItem('selectedDrink');
 	}
 	getLocalStorage(firstName: string, lastName: string, customerKnownBoolean: boolean):string {
 		

@@ -39,14 +39,14 @@ export class SelectBeverageComponent implements OnInit {
 		customDrink = this.customDrink
 		this.service.saveDrink(customDrink)
 	}
-	userChoice(beverage){	//TODO gör så en boolean sparas vid val av dryck och att drycken sparas.
-		
-		let selectedChoise = { name: beverage.name};
+	userChoice(selectedChoise){	
+		// let selectedChoise = beverage.name;
+		// let selectedChoise = { name: beverage.name};
 		// let selectedBoolean = {drinkSelectedBoolean: true};
 		// this.selectedDrink.push(selectedBoolean);
-		this.selectedDrink.push(selectedChoise);
-		this.service.setSelectedDrink(JSON.stringify(this.selectedDrink))
-		console.log(this.selectedDrink);
+		// this.selectedDrink.push(selectedChoise);
+		this.service.setSelectedDrink(selectedChoise)
+		console.log(selectedChoise);
 		
 	}
 	ngOnInit() {

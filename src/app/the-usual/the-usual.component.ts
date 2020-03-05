@@ -9,7 +9,7 @@ export class TheUsualComponent implements OnInit {
 	constructor(public service:LocalStorageService) { }
 	private selectedDrink: object[];
 	test;
-	getSelectedDrink(){
+	getSelectedDrink(){ //TODO Här har Karin gjort dumheter! xD
 		this.test = this.service.getSelectedDrink()
 		console.log('I getSelecktedDrink()-funktionen ', this.test);
 		
@@ -17,7 +17,7 @@ export class TheUsualComponent implements OnInit {
 	
 	ngOnInit() {
 		this.getSelectedDrink();
-		console.log('I ngOnInit()-funktionen ', this.test.names);
+		console.log('I ngOnInit()-funktionen ', this.test);
 		
 	}
 
