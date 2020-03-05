@@ -11,6 +11,7 @@ export class SelectBeverageComponent implements OnInit {
   customDrink:string;
   drinkValue:string = name;
   defaultBeverages:Beverages[]
+  
   constructor(public beverageService: BeverageListService,
               public service:LocalStorageService) { }
   getBeveragelist(){
@@ -25,8 +26,8 @@ export class SelectBeverageComponent implements OnInit {
 		console.log(this.customDrink);
   }
   submitDrink(){
-    let selectedBeverage = {name}; //! Här blir det fel! :never
-    selectedBeverage[this.drinkValue] = this.customDrink;
+    let selectedBeverage = {name: this.customDrink}; //! Här blir det fel! :never
+    
     console.log('selected ' + selectedBeverage, 'drink ' + this.customDrink);
     
     this.defaultBeverages.push(selectedBeverage)
