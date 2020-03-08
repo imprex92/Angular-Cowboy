@@ -16,7 +16,7 @@ export class SelectBeverageComponent implements OnInit {
 	constructor(public beverageService: BeverageListService,
 							public service:LocalStorageService) { }
 	getBeveragelist(){
-		this.beverageService.getBeveragelist(this.defaultBeverages)
+		this.service.getBeveragelist(this.defaultBeverages)
 		// this.defaultBeverages = this.beverageService.defaultBeverages
 		// console.log(this.defaultBeverages);
 	}
@@ -51,8 +51,9 @@ export class SelectBeverageComponent implements OnInit {
 	}
 	ngOnInit() {
 		this.getBeveragelist()
-		this.defaultBeverages = this.beverageService.defaultBeverages
+		this.defaultBeverages = this.service.defaultBeverages
 		console.log(this.defaultBeverages);
+		
 	}
 
 }

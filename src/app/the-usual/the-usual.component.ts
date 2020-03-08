@@ -7,10 +7,10 @@ import { LocalStorageService } from "../localStorage.service";
 })
 export class TheUsualComponent implements OnInit {
 	constructor(public service:LocalStorageService) { }
-	private selectedDrink: object[];
+	selectedDrink: string;
 	test;
 	getSelectedDrink(){ //TODO Här har Karin gjort dumheter! xD
-		this.test = this.service.getSelectedDrink()
+		this.selectedDrink = this.service.getSelectedDrink()
 		console.log('I getSelecktedDrink()-funktionen ', this.test);
 		
 	}

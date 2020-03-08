@@ -1,16 +1,37 @@
 import { Injectable } from '@angular/core';
-
+import { BeverageListService } from "./beverage-list.service";
+import { Beverages } from './beverages';
 
 
 @Injectable({
 	providedIn: 'root'
 })
 export class LocalStorageService {
+	defaultBeverages: Beverages[] = [
+		{name: 'Cowboy Martini'},
+		{name: 'Texas Whiskey Revival'},
+		{name: 'Ginger Rogers Cocktail'},
+		{name: 'Mexican Mule'}
+	]
+	getBeverageList(){
+		if(localStorage.getItem('defaultBeverages') == null || localStorage.getItem('defaultBeverages') == undefined){
+
+			localStorage.setItem('defaultBeverages', JSON.stringify(this.defaultBeverages))
+
+		}
+		console.log(JSON.parse(localStorage.getItem('defaultBeverages')));
+		return JSON.parse(localStorage.getItem('defaultBeverages'))
+		
+		
+	}
+	
+	constructor(public beverageService: BeverageListService) { }
 	private firstName: string;
 	private lastName: string;
 	private values: string;
 	private customDrink: string
 	private customerKnownBoolean: boolean;
+	beverageList;
 	setLocalStorage(firstName:string, lastName:string, customerKnownBoolean:boolean):any {
 		this.firstName = firstName
 		localStorage.setItem('Name', firstName);
@@ -26,8 +47,17 @@ export class LocalStorageService {
 		
 	}
 	setSelectedDrink(selectedChoise){
-		localStorage.setItem('selectedDrink', selectedChoise);
+		let obj = {selectedChoise}
+		localStorage.setItem('selectedDrink', JSON.stringify(obj))
+		// localStorage.setItem('selectedDrink', selectedChoise);
 	}
+	
+	getBeveragelist(defaultBeverages){
+		
+		return defaultBeverages
+	}
+	
+
 	getSelectedDrink(){		
 		
 		return localStorage.getItem('selectedDrink');

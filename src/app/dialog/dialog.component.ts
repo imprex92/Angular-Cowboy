@@ -48,6 +48,7 @@ export class DialogComponent implements OnInit {
 	}
   	ngOnInit() { // Någonting gå illa här!
 		this.getStorageItem()
+		this.service.getBeverageList()
 		if(!this.getStorageItem){
 			console.log('Nothing is inside storage ', localStorage.LastName, localStorage.customerKnownBoolean);
 			this.customerKnownBoolean = false;
