@@ -14,7 +14,7 @@ export class SelectBeverageComponent implements OnInit {
 	selectedDrink =  [];
 	
 	constructor(public beverageService: BeverageListService,
-							public service:LocalStorageService) { }
+				public service:LocalStorageService) { }
 	getBeveragelist(){
 		this.service.getBeveragelist(this.defaultBeverages)
 		// this.defaultBeverages = this.beverageService.defaultBeverages

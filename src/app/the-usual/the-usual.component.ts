@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LocalStorageService } from "../localStorage.service";
 @Component({
 	selector: 'app-the-usual',
@@ -7,16 +7,25 @@ import { LocalStorageService } from "../localStorage.service";
 })
 export class TheUsualComponent implements OnInit {
 	constructor(public service:LocalStorageService) { }
-	selectedDrink: string;
+	theUsualDrink: string;
+	fetchUsualDrink:object;
 	test;
-	getSelectedDrink(){ //TODO Här har Karin gjort dumheter! xD
-		this.selectedDrink = this.service.getSelectedDrink()
+	
+	@Output() fetchTheUsual = new EventEmitter<object>();
+		fetchUsual(){
+			this.fetchTheUsual.emit(this.fetchUsualDrink);
+		}
+	
+	
+	
+	getTheUsualDrink(){ //TODO Här har Karin gjort dumheter! xD
+		this.theUsualDrink = this.service.getTheUsualDrink()
 		console.log('I getSelecktedDrink()-funktionen ', this.test);
 		
 	}
 	
 	ngOnInit() {
-		this.getSelectedDrink();
+		this.getTheUsualDrink();
 		console.log('I ngOnInit()-funktionen ', this.test);
 		
 	}

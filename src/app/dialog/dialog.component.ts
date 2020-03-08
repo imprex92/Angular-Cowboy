@@ -16,10 +16,10 @@ export class DialogComponent implements OnInit {
 	lastName: string = '';
 	message: string;
 	message1: string = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
-	
+	theUsualDrink: object;
 	
   constructor(public service:LocalStorageService) { }
-
+  
   firstNameInput(event){
 		// console.log('key up event: ', event);
 		let input = event.target;
@@ -45,6 +45,12 @@ export class DialogComponent implements OnInit {
 	getStorageItem(){
 		this.service.getLocalStorage(this.lastName, this.firstName, this.customerKnownBoolean)
 		console.log(this.firstName, this.lastName)
+	}
+
+	//TODO @Output problem
+
+	listHere(theUsualDrink:object){		//TODO Funktionen som tar hand om @Outputen från Usual Child
+
 	}
   	ngOnInit() { // Någonting gå illa här!
 		this.getStorageItem()

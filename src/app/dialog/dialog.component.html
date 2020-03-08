@@ -1,11 +1,11 @@
 <p>
-  {{ title }}
+	{{ title }}
 </p>
 
 <div class="container">
-  <div *ngIf="customerKnownBoolean"><h3> {{ message }}</h3></div>
-  
-  <div *ngIf="!customerKnownBoolean"><h3> {{message1}}</h3></div>
+	<div *ngIf="customerKnownBoolean"><h3> {{ message }}</h3></div>
+	
+	<div *ngIf="!customerKnownBoolean"><h3> {{message1}}</h3></div>
 <form>
 	<input type="text" id="firstName" placeholder="Enter firstname" [disabled]="formSubmitted" (keyup)="firstNameInput($event)">
 	<input type="text" id="lastName" placeholder="Enter lastname" [disabled]="formSubmitted" (keyup)="lastNameInput($event)">
@@ -13,7 +13,14 @@
 <p></p>
 <button type="submit" id="nameSubmitButton" [disabled]="clickedButton" (click)="handleSaveName()">Submit Name</button>
 </div>
-<app-the-usual></app-the-usual>
+
+<!-- @output problem -->
+
+<ng-container *ngIf="customerKnownBoolean">
+	<app-the-usual (fetchTheUsual)="listHere($event)">
+
+	</app-the-usual>
+</ng-container>
 <app-select-beverage>
 
 </app-select-beverage>

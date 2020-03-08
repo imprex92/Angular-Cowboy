@@ -58,7 +58,7 @@ export class LocalStorageService {
 	}
 	
 
-	getSelectedDrink(){		
+	getTheUsualDrink(){		
 		
 		return localStorage.getItem('selectedDrink');
 	}
