@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BeverageListService } from "../beverage-list.service";
 import { Beverages } from '../beverages';
 import { LocalStorageService } from "../localStorage.service";
@@ -39,13 +39,11 @@ export class SelectBeverageComponent implements OnInit {
 		customDrink = this.customDrink
 		this.service.saveDrink(customDrink)
 	}
+	@Output() choosenDrink = new EventEmitter<Beverages>()
 	userChoice(selectedChoise){	
-		// let selectedChoise = beverage.name;
-		// let selectedChoise = { name: beverage.name};
-		// let selectedBoolean = {drinkSelectedBoolean: true};
-		// this.selectedDrink.push(selectedBoolean);
-		// this.selectedDrink.push(selectedChoise);
+		
 		this.service.setSelectedDrink(selectedChoise)
+		this.choosenDrink.emit(selectedChoise)
 		console.log(selectedChoise);
 		
 	}

@@ -8,25 +8,26 @@ import { LocalStorageService } from "../localStorage.service";
 export class TheUsualComponent implements OnInit {
 	constructor(public service:LocalStorageService) { }
 	theUsualDrink: string;
-	fetchUsualDrink:object;
-	test;
-	
-	@Output() fetchTheUsual = new EventEmitter<object>();
-		fetchUsual(){
-			this.fetchTheUsual.emit(this.fetchUsualDrink);
-		}
+	fetchUsualDrink:string;
 	
 	
+	@Output() fetchTheUsual = new EventEmitter<string>();
 	
-	getTheUsualDrink(){ //TODO Här har Karin gjort dumheter! xD
-		this.theUsualDrink = this.service.getTheUsualDrink()
-		console.log('I getSelecktedDrink()-funktionen ', this.test);
+	fetchUsual(){
+		this.fetchTheUsual.emit(this.fetchUsualDrink);
+	}
+	
+	
+	
+	getTheUsualDrink(){ 
+		this.fetchUsualDrink = this.service.getTheUsualDrink()
+		console.log('I getSelecktedDrink()-funktionen ', this.fetchUsualDrink);
 		
 	}
 	
 	ngOnInit() {
 		this.getTheUsualDrink();
-		console.log('I ngOnInit()-funktionen ', this.test);
+		console.log('I ngOnInit()-funktionen ', this.fetchUsualDrink);
 		
 	}
 

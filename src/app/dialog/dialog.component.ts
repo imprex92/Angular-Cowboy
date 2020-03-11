@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from "../localStorage.service";
-
+import { Beverages } from "../beverages";
 
 @Component({
   selector: 'app-dialog',
@@ -16,8 +16,11 @@ export class DialogComponent implements OnInit {
 	lastName: string = '';
 	message: string;
 	message1: string = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
-	theUsualDrink: object;
-	
+	usualDrink: Beverages;
+	selectedDrink: Beverages;
+	theUsual1: string;
+	drinkWithText:string;
+
   constructor(public service:LocalStorageService) { }
   
   firstNameInput(event){
@@ -49,12 +52,28 @@ export class DialogComponent implements OnInit {
 
 	//TODO @Output problem
 
-	listHere(theUsualDrink:object){		//TODO Funktionen som tar hand om @Outputen från Usual Child
+	handleTheUsual(theUsualDrink:Beverages){		//TODO Funktionen som tar hand om @Outputen från Usual Child
+		this.usualDrink = theUsualDrink
+		console.log( 'this is the usual that you wanted last time' + this.usualDrink);
 
+		this.theUsual1 = "The usual - " + this.selectedDrink +" coming up";
+		
 	}
-  	ngOnInit() { // Någonting gå illa här!
+	handleTheSelected(theSelectedDrink){
+		
+		this.selectedDrink = theSelectedDrink.name;
+		let drinkReadyTxt = ' coming right up!'
+		this.drinkWithText = 'Awesome ' + this.selectedDrink + drinkReadyTxt
+		console.log("the dia comp handleSelected()", this.selectedDrink);
+	}
+  	ngOnInit() { //! Någonting gå illa här!
 		this.getStorageItem()
 		this.service.getBeverageList()
+	
+
+	
+		
+		
 		if(!this.getStorageItem){
 			console.log('Nothing is inside storage ', localStorage.LastName, localStorage.customerKnownBoolean);
 			this.customerKnownBoolean = false;

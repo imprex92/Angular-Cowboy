@@ -10,3 +10,16 @@
 #lastName{
 	margin-left: 1em;
 }
+.selectedDrinkArea{
+	background-color: aliceblue;
+	padding: 0.5em;
+}
+#rightToBeForgotten{
+	position: absolute;
+
+}
+#rightToBeForgotten > button{
+	padding: 1em;
+	color: red;
+	background-color: darkred;
+}

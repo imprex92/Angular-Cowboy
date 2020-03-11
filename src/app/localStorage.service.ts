@@ -46,9 +46,16 @@ export class LocalStorageService {
 		console.log(customDrink);
 		
 	}
-	setSelectedDrink(selectedChoise){
-		let obj = {selectedChoise}
-		localStorage.setItem('selectedDrink', JSON.stringify(obj))
+	setSelectedDrink(selectedChoise ){
+		// let obj = {selectedChoise}
+		// localStorage.setItem('selectedDrink', JSON.stringify(obj))
+		localStorage.setItem('selectedDrink', selectedChoise)
+
+
+
+
+
+		
 		// localStorage.setItem('selectedDrink', selectedChoise);
 	}
 	

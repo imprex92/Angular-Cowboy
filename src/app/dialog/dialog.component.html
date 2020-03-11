@@ -1,6 +1,6 @@
-<p>
-	{{ title }}
-</p>
+<div id="rightToBeForgotten" *ngIf="customerKnownBoolean">
+	<button type="submit">I want to be forgotten!</button>
+</div>
 
 <div class="container">
 	<div *ngIf="customerKnownBoolean"><h3> {{ message }}</h3></div>
@@ -14,13 +14,14 @@
 <button type="submit" id="nameSubmitButton" [disabled]="clickedButton" (click)="handleSaveName()">Submit Name</button>
 </div>
 
-<!-- @output problem -->
+<div class="selectedDrinkArea"> 
+	<span> {{ drinkWithText }} </span> 
+</div>
 
 <ng-container *ngIf="customerKnownBoolean">
-	<app-the-usual (fetchTheUsual)="listHere($event)">
-
-	</app-the-usual>
+	<button value="{{ selectedDrink }}"> The Usual </button>	
 </ng-container>
-<app-select-beverage>
 
-</app-select-beverage>
+<app-select-beverage *ngIf="customerKnownBoolean" (choosenDrink)="handleTheSelected($event)"></app-select-beverage>
+
+{{ selectedDrink }}
