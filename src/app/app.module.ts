@@ -7,13 +7,15 @@ import { LocalStorageService } from "./localStorage.service";
 import { DialogComponent } from './dialog/dialog.component';
 import { SelectBeverageComponent } from './select-beverage/select-beverage.component';
 import { TheUsualComponent } from './the-usual/the-usual.component';
+import { RightToBeForgottenComponent } from './right-to-be-forgotten/right-to-be-forgotten.component';
 @NgModule({
    declarations: [
       AppComponent,
       StorageComponent,
       DialogComponent,
       SelectBeverageComponent,
-      TheUsualComponent
+      TheUsualComponent,
+      RightToBeForgottenComponent
    ],
    imports: [
       BrowserModule

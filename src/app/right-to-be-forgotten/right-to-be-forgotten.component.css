@@ -1,0 +1,9 @@
+#rightToBeForgotten{
+	position: absolute;
+
+}
+#rightToBeForgotten > button{
+	padding: 1em;
+	color: red;
+	background-color: darkred;
+}
