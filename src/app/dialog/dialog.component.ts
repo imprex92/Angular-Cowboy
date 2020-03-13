@@ -11,6 +11,7 @@ export class DialogComponent implements OnInit {
 	title = 'Angular-Cowboy';
 	clickedButton: boolean = false;
 	formSubmitted: boolean = false;
+	haveUsualDrink
 	customerKnownBoolean: boolean;
 	firstName: string = '';
 	lastName: string = '';
@@ -20,6 +21,9 @@ export class DialogComponent implements OnInit {
 	selectedDrink: Beverages;
 	theUsual1: string;
 	drinkWithText:string;
+	theUsualBtn;
+	theSelectedUsual:string
+	
 
   constructor(public service:LocalStorageService) { }
   
@@ -53,23 +57,43 @@ export class DialogComponent implements OnInit {
 	//TODO @Output problem
 
 	handleTheUsual(theUsualDrink:Beverages){		//TODO Funktionen som tar hand om @Outputen från Usual Child
-		this.usualDrink = theUsualDrink
-		console.log( 'this is the usual that you wanted last time' + this.usualDrink);
+		// this.usualDrink = theUsualDrink
+		// console.log( 'this is the usual that you wanted last time' + this.usualDrink);
 
-		this.theUsual1 = "The usual - " + this.selectedDrink +" coming up";
+		// this.theUsual1 = "The usual - " + this.selectedDrink +" coming up";
 		
 	}
 	handleTheSelected(theSelectedDrink){
 		
 		this.selectedDrink = theSelectedDrink.name;
+		this.theUsualBtn = theSelectedDrink.name;
+		
 		let drinkReadyTxt = ' coming right up!'
 		this.drinkWithText = 'Awesome ' + this.selectedDrink + drinkReadyTxt
 		console.log("the dia comp handleSelected()", this.selectedDrink);
 	}
+	theUsualButton(value){
+		
+		this.theUsualBtn = this.service.getSelectedDrink()
+		console.log('detta är i knappen nu', this.theUsualBtn);
+		
+		console.log("value: ",value.target.value);
+		this.theUsualBtn = value.target.value;
+		this.theSelectedUsual = 'the usual ', this.theUsualBtn, 'comming up!'
+		
+	}
+	getTheUsualButton(){
+		if(this.theUsualBtn == null || this.theUsualBtn == undefined){
+			this.theUsualBtn = this.service.getTheUsualDrink()
+		}
+	}
+	
+
   	ngOnInit() { //! Någonting gå illa här!
 		this.getStorageItem()
 		this.service.getBeverageList()
-	
+		this.haveUsualDrink = this.service.getTheUsualBoolean()
+		this.getTheUsualButton()
 
 	
 		

@@ -17,13 +17,16 @@
 </div>
 
 <div class="selectedDrinkArea"> 
-	<span> {{ drinkWithText }} </span> 
+	<span> {{ drinkWithText }}  </span> 
 </div>
 
-<ng-container *ngIf="customerKnownBoolean">
-	<button value="{{ selectedDrink }}"> The Usual </button>	
+<ng-container *ngIf="haveUsualDrink">
+	<button value="{{ theUsualBtn }}" (click)="theUsualButton($event)"> The Usual </button>	
+
+
+
 </ng-container>
 
 <app-select-beverage *ngIf="customerKnownBoolean" (choosenDrink)="handleTheSelected($event)"></app-select-beverage>
 
-{{ selectedDrink }}
+<!-- {{ selectedDrink }} {{ drinkWithText }} {{ theUsualBtn.name }} -->

@@ -7,7 +7,7 @@ import { LocalStorageService } from "../localStorage.service";
 })
 export class TheUsualComponent implements OnInit {
 	constructor(public service:LocalStorageService) { }
-	theUsualDrink: string;
+	
 	fetchUsualDrink:string;
 	
 	

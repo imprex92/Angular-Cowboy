@@ -49,8 +49,8 @@ export class LocalStorageService {
 	setSelectedDrink(selectedChoise ){
 		// let obj = {selectedChoise}
 		// localStorage.setItem('selectedDrink', JSON.stringify(obj))
-		localStorage.setItem('selectedDrink', selectedChoise)
-
+		localStorage.setItem('selectedDrink', JSON.stringify(selectedChoise))
+		localStorage.setItem('haveUsualDrink', 'true')
 
 
 
@@ -58,16 +58,20 @@ export class LocalStorageService {
 		
 		// localStorage.setItem('selectedDrink', selectedChoise);
 	}
-	
+	getSelectedDrink(){
+		return JSON.parse(localStorage.getItem('selectedDrink'))
+	}
 	getBeveragelist(defaultBeverages){
 		
 		return defaultBeverages
 	}
-	
+	getTheUsualBoolean(){
+		return JSON.parse(localStorage.getItem('haveUsualDrink'))
+	}
 
 	getTheUsualDrink(){		
 		
-		return localStorage.getItem('selectedDrink');
+		return JSON.parse(localStorage.getItem('selectedDrink'));
 	}
 	getLocalStorage(firstName: string, lastName: string, customerKnownBoolean: boolean):string {
 		
