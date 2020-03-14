@@ -22,8 +22,7 @@ export class DialogComponent implements OnInit {
 	theUsual1: string;
 	drinkWithText:string;
 	theUsualBtn;
-	theSelectedUsual:string
-	
+	theSelectedUsual:string = ""
 
   constructor(public service:LocalStorageService) { }
   
@@ -78,8 +77,8 @@ export class DialogComponent implements OnInit {
 		console.log('detta är i knappen nu', this.theUsualBtn);
 		
 		console.log("value: ",value.target.value);
-		this.theUsualBtn = value.target.value;
-		this.theSelectedUsual = 'the usual ', this.theUsualBtn, 'comming up!'
+		// this.theUsualBtn = value.target.value;
+		this.theSelectedUsual = 'the usual ' + this.theUsualBtn.name + ' comming up!'
 		
 	}
 	getTheUsualButton(){

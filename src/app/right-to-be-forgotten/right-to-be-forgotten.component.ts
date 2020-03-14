@@ -11,5 +11,7 @@ export class RightToBeForgottenComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  rightToBeForgotten(){
+    
+  }
 }

@@ -22,10 +22,9 @@
 
 <ng-container *ngIf="haveUsualDrink">
 	<button value="{{ theUsualBtn }}" (click)="theUsualButton($event)"> The Usual </button>	
-
-
-
+	
 </ng-container>
+<div> {{ theSelectedUsual }} </div>
 
 <app-select-beverage *ngIf="customerKnownBoolean" (choosenDrink)="handleTheSelected($event)"></app-select-beverage>
 
