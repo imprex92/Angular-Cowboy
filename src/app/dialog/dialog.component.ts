@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LocalStorageService } from "../localStorage.service";
 import { Beverages } from "../beverages";
 
@@ -8,11 +8,13 @@ import { Beverages } from "../beverages";
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
+	@Input() public forgottenStatement:string;
+	@Input() public customerKnownBoolean:boolean
 	title = 'Angular-Cowboy';
 	clickedButton: boolean = false;
 	formSubmitted: boolean = false;
 	haveUsualDrink
-	customerKnownBoolean: boolean;
+	// customerKnownBoolean: boolean;
 	firstName: string = '';
 	lastName: string = '';
 	message: string;

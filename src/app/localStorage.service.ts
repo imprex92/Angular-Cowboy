@@ -13,6 +13,16 @@ export class LocalStorageService {
 		{name: 'Ginger Rogers Cocktail'},
 		{name: 'Mexican Mule'}
 	]
+
+	rightToBeForgotten(){
+		localStorage.clear()
+
+	}
+	isCustomerKnown(){
+		return JSON.parse(localStorage.getItem('customerKnownBoolean'))
+	}
+
+
 	getBeverageList(){
 		if(localStorage.getItem('defaultBeverages') == null || localStorage.getItem('defaultBeverages') == undefined){
 

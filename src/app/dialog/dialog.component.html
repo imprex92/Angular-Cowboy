@@ -1,19 +1,17 @@
 <div id="rightToBeForgotten" *ngIf="customerKnownBoolean">
-	<app-right-to-be-forgotten>
-		
-	</app-right-to-be-forgotten>
+	<strong>This is the message from app-component: {{ forgottenStatement }}</strong>
 </div>
 
 <div class="container">
 	<div *ngIf="customerKnownBoolean"><h3> {{ message }}</h3></div>
 	
 	<div *ngIf="!customerKnownBoolean"><h3> {{message1}}</h3></div>
-<form>
-	<input type="text" id="firstName" placeholder="Enter firstname" [disabled]="formSubmitted" (keyup)="firstNameInput($event)">
-	<input type="text" id="lastName" placeholder="Enter lastname" [disabled]="formSubmitted" (keyup)="lastNameInput($event)">
-</form>
-<p></p>
-<button type="submit" id="nameSubmitButton" [disabled]="clickedButton" (click)="handleSaveName()">Submit Name</button>
+	<form>
+		<input type="text" id="firstName" placeholder="Enter firstname" [disabled]="formSubmitted" (keyup)="firstNameInput($event)">
+		<input type="text" id="lastName" placeholder="Enter lastname" [disabled]="formSubmitted" (keyup)="lastNameInput($event)">
+	</form>
+	<p></p>
+	<button type="submit" id="nameSubmitButton" [disabled]="clickedButton"  (click)="handleSaveName()">Submit Name</button>
 </div>
 
 <div class="selectedDrinkArea"> 
@@ -28,4 +26,4 @@
 
 <app-select-beverage *ngIf="customerKnownBoolean" (choosenDrink)="handleTheSelected($event)"></app-select-beverage>
 
-<!-- {{ selectedDrink }} {{ drinkWithText }} {{ theUsualBtn.name }} -->
+
