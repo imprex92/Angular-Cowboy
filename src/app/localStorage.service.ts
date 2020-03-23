@@ -16,6 +16,7 @@ export class LocalStorageService {
 
 	rightToBeForgotten(){
 		localStorage.clear()
+		localStorage.setItem('customerKnownBoolean', 'false')
 
 	}
 	isCustomerKnown(){

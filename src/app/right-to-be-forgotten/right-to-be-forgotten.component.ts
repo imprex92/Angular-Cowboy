@@ -6,7 +6,7 @@ import { LocalStorageService } from "../localStorage.service";
   styleUrls: ['./right-to-be-forgotten.component.css']
 })
 export class RightToBeForgottenComponent implements OnInit {
-  public youForgotten:string = 'Oh right! Who were you again?'
+  public messageEmit:string = 'Oh right! Who were you again?'
   constructor(public service:LocalStorageService) { }
   customerKnownBoolean: boolean;
   @Output() event: EventEmitter<string> = new EventEmitter()
@@ -16,9 +16,9 @@ export class RightToBeForgottenComponent implements OnInit {
   isCustomerKnown(){
     this.customerKnownBoolean = this.service.isCustomerKnown()
   }
-  rightToBeForgotten(){
+  sendToParent(){
+    this.event.emit(this.messageEmit)
     this.service.rightToBeForgotten()
-    this.event.emit(this.youForgotten)
   }
   
 }

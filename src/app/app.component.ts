@@ -6,13 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-	@Input() public forgottenStatement:string;
-	@Input() public sendBoolean: boolean;
+	// forgottenStatement:string;
+	public customerKnownBoolean: boolean = false;
+	public messageFromEmit = '';
 	// title = 'Angular-Cowboy';
-	public fromForgottenMessage:string = 'Oh right! Who were you again?';
-	public dataFromForgotten(event){
-		this.fromForgottenMessage = event;
-		console.log(this.fromForgottenMessage);
+		
+	public setDataFromChild(data:string){
+		this.messageFromEmit = data;
+		
 		
 	}
 	constructor(){}	

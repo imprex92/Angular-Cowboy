@@ -1,6 +1,4 @@
-<div id="rightToBeForgotten" *ngIf="customerKnownBoolean">
-	<strong>This is the message from app-component: {{ forgottenStatement }}</strong>
-</div>
+
 
 <div class="container">
 	<div *ngIf="customerKnownBoolean"><h3> {{ message }}</h3></div>
@@ -27,3 +25,6 @@
 <app-select-beverage *ngIf="customerKnownBoolean" (choosenDrink)="handleTheSelected($event)"></app-select-beverage>
 
 
+<!-- <div id="rightToBeForgotten" >
+	<strong>This is the message from app-component: {{ message }}</strong>
+</div> -->

@@ -1,10 +1,11 @@
 <!-- <p>emittade meddelande: {{ fromForgottenMessage }}</p> -->
 
 
-<app-dialog [forgottenStatement]="fromForgottenMessage"></app-dialog>
+<app-dialog [message]="messageFromEmit"
+			[customerKnownBoolean]="customerKnownBoolean"></app-dialog>
 
 
 
-<app-right-to-be-forgotten [sendBoolean]="customerKnownBoolean" (event)="dataFromForgotten($event)">
+<app-right-to-be-forgotten  (event)="setDataFromChild($event)">
 		
 </app-right-to-be-forgotten>

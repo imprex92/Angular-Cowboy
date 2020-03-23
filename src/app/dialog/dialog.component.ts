@@ -8,7 +8,7 @@ import { Beverages } from "../beverages";
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-	@Input() public forgottenStatement:string;
+	@Input() public message:string;
 	@Input() public customerKnownBoolean:boolean
 	title = 'Angular-Cowboy';
 	clickedButton: boolean = false;
@@ -17,7 +17,7 @@ export class DialogComponent implements OnInit {
 	// customerKnownBoolean: boolean;
 	firstName: string = '';
 	lastName: string = '';
-	message: string;
+	
 	message1: string = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
 	usualDrink: Beverages;
 	selectedDrink: Beverages;
@@ -95,7 +95,8 @@ export class DialogComponent implements OnInit {
 		this.service.getBeverageList()
 		this.haveUsualDrink = this.service.getTheUsualBoolean()
 		this.getTheUsualButton()
-
+		
+		
 	
 		
 		
