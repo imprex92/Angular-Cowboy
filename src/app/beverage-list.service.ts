@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Beverages } from './beverages';
-import { LocalStorageService } from "./localStorage.service";
 @Injectable({
 	providedIn: 'root'
 })
@@ -12,11 +11,4 @@ export class BeverageListService {
 		{name: 'Mexican Mule'}
 	]
 constructor() { }
-	// getBeveragelist(defaultBeverages){
-		
-	// 	return defaultBeverages
-	// }
-	// setBeverageList(){
-		
-	// }
 }
