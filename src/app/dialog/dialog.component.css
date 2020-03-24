@@ -1,8 +1,59 @@
-.container{
-	background-color: lightsalmon;
+
+
+
+	/* CSS för knappar Start */
+
+
+#nameSubmitButton{
+	padding: 0.8em 4em 0.8em 4em;
+	border-radius: 20px;
+	background-color: rgb(29, 29, 29);
+	border: 2px solid red;
+	color: whitesmoke;
+	font-size: medium;
+	font-weight: 700;
 }
-#firstName, #lastName, #nameSubmitButton{
+#nameSubmitButton:hover{
+	background-color: whitesmoke;
+	color: black;
+	border: 2px solid rgb(0, 243, 0);
+}
+#nameSubmitButton:active{
+	background-color: whitesmoke;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+#usualButton{
+	padding: 0.5em 2em 0.5em 2em;
+	border-radius: 20px;
+	background-color: lightgrey;
+	border: 2px solid red;
+	font-weight: 600;
+}
+#usualButton:hover{
+	background-color: rgb(29, 29, 29);
+	color: whitesmoke;
+	border: 2px solid rgb(0, 243, 0);
+}
+#usualButton:active{
+	background-color: black;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#rightToBeForgotten > button{
+	padding: 1em;
+	color: red;
+	background-color: darkred;
+}
+
+
+	/* CSS för knappar slut */
+
+	/* CSS för Inputfält Start */
+
+#firstName, #lastName{
 	padding: 0.5em;
+	border-radius: 15px;
 }
 #firstName{
 	margin-right: 1em;
@@ -10,16 +61,24 @@
 #lastName{
 	margin-left: 1em;
 }
-.selectedDrinkArea{
-	background-color: aliceblue;
-	padding: 0.5em;
+
+
+/* CSS för Inputfält Slut */
+
+/* Texter, Övrigt */
+
+.container{
+	background-color: lightsalmon;
+	padding-bottom: 1em;
+}
+.selectedDrinkArea{	
+	background-color: #d3d3d3;
+	margin-bottom: 1em;
+}
+.selectedDrinkArea > span{
+	font-size: x-large;
+	font-weight: 500;
 }
 #rightToBeForgotten{
 	position: absolute;
-
-}
-#rightToBeForgotten > button{
-	padding: 1em;
-	color: red;
-	background-color: darkred;
 }
