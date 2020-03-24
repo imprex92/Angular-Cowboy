@@ -19,8 +19,6 @@ export class SelectBeverageComponent implements OnInit {
 		public service:LocalStorageService) { }
 	getBeveragelist(){
 		this.service.getBeveragelist(this.defaultBeverages)
-		// this.defaultBeverages = this.beverageService.defaultBeverages
-		// console.log(this.defaultBeverages);
 	}
 	customDrinkInput(event){
 		let input = event.target;
@@ -29,31 +27,25 @@ export class SelectBeverageComponent implements OnInit {
 		console.log(this.customDrink);
 	}
 	submitDrink(){
-		let selectedBeverage = {name: this.customDrink};
-		
+		let selectedBeverage = {name: this.customDrink};		
 		console.log('selected ' + selectedBeverage, 'drink ' + this.customDrink);
-		
 		this.defaultBeverages.push(selectedBeverage)
-		console.log(selectedBeverage);
-		
+		console.log(selectedBeverage);		
 	}
 	saveDrink(customDrink){
 		customDrink = this.customDrink
 		this.service.saveDrink(customDrink)
 	}
 	@Output() choosenDrink = new EventEmitter<Beverages>()
-	userChoice(selectedChoise){	
-		
+	userChoice(selectedChoise){			
 		this.service.setSelectedDrink(selectedChoise)
 		this.choosenDrink.emit(selectedChoise)
-		console.log(selectedChoise);
-		
+		console.log(selectedChoise);		
 	}
 	ngOnInit() {
 		this.getBeveragelist()
 		this.defaultBeverages = this.service.defaultBeverages
-		console.log(this.defaultBeverages);
-		
+		console.log(this.defaultBeverages);		
 	}
 
 }

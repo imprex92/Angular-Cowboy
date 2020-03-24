@@ -1,9 +1,4 @@
-
-
-
 	/* CSS för knappar Start */
-
-
 #nameSubmitButton{
 	padding: 0.8em 4em 0.8em 4em;
 	border-radius: 20px;
@@ -12,6 +7,7 @@
 	color: whitesmoke;
 	font-size: medium;
 	font-weight: 700;
+	cursor: pointer;
 }
 #nameSubmitButton:hover{
 	background-color: whitesmoke;
@@ -24,11 +20,13 @@
 	transform: translateY(4px);
 }
 #usualButton{
+	margin-bottom: 1.2em;
 	padding: 0.5em 2em 0.5em 2em;
 	border-radius: 20px;
 	background-color: lightgrey;
 	border: 2px solid red;
 	font-weight: 600;
+	cursor: pointer;
 }
 #usualButton:hover{
 	background-color: rgb(29, 29, 29);
@@ -40,12 +38,6 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-#rightToBeForgotten > button{
-	padding: 1em;
-	color: red;
-	background-color: darkred;
-}
-
 
 	/* CSS för knappar slut */
 
@@ -61,7 +53,6 @@
 #lastName{
 	margin-left: 1em;
 }
-
 
 /* CSS för Inputfält Slut */
 
