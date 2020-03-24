@@ -6,29 +6,18 @@ import { LocalStorageService } from "../localStorage.service";
 	styleUrls: ['./the-usual.component.css']
 })
 export class TheUsualComponent implements OnInit {
-	constructor(public service:LocalStorageService) { }
-	
-	fetchUsualDrink:string;
-	
-	
-	@Output() fetchTheUsual = new EventEmitter<string>();
-	
+	constructor(public service:LocalStorageService) { }	
+	fetchUsualDrink:string;	
+	@Output() fetchTheUsual = new EventEmitter<string>();	
 	fetchUsual(){
 		this.fetchTheUsual.emit(this.fetchUsualDrink);
 	}
-	
-	
-	
 	getTheUsualDrink(){ 
 		this.fetchUsualDrink = this.service.getTheUsualDrink()
-		console.log('I getSelecktedDrink()-funktionen ', this.fetchUsualDrink);
-		
-	}
-	
+		console.log('I getSelecktedDrink()-funktionen ', this.fetchUsualDrink);		
+	}	
 	ngOnInit() {
 		this.getTheUsualDrink();
-		console.log('I ngOnInit()-funktionen ', this.fetchUsualDrink);
-		
+		console.log('I ngOnInit()-funktionen ', this.fetchUsualDrink);		
 	}
-
 }

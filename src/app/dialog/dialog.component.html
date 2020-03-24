@@ -1,8 +1,7 @@
 
 
 <div class="container">
-	<div *ngIf="customerKnownBoolean"><h1> {{ message }}</h1></div>
-	
+	<div *ngIf="customerKnownBoolean"><h1> {{ message }}</h1></div>	
 	<div *ngIf="!customerKnownBoolean"><h1> {{message1}}</h1></div>
 	<form>
 		<input type="text" id="firstName" placeholder="Enter firstname" [disabled]="formSubmitted" (keyup)="firstNameInput($event)">
@@ -19,12 +18,6 @@
 
 <ng-container *ngIf="haveUsualDrink">
 	<button id="usualButton" value="{{ theUsualBtn }}" (click)="theUsualButton($event)"> The Usual </button>	
-	
 </ng-container>
 
 <app-select-beverage *ngIf="customerKnownBoolean" (choosenDrink)="handleTheSelected($event)"></app-select-beverage>
-
-
-<!-- <div id="rightToBeForgotten" >
-	<strong>This is the message from app-component: {{ message }}</strong>
-</div> -->

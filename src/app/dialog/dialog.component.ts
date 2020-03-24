@@ -10,18 +10,14 @@ import { Beverages } from "../beverages";
 export class DialogComponent implements OnInit {
 	@Input() public message:string;
 	@Input() public customerKnownBoolean:boolean
-	title = 'Angular-Cowboy';
+	title:string = 'Angular-Cowboy';
 	clickedButton: boolean = false;
 	formSubmitted: boolean = false;
-	haveUsualDrink
-	// customerKnownBoolean: boolean;
+	haveUsualDrink:boolean
 	firstName: string = '';
-	lastName: string = '';
-	
+	lastName: string = '';	
 	message1: string = "Howdy, stranger. Haven't seen your face around here before. What's your name?";
-	usualDrink: Beverages;
 	selectedDrink: Beverages;
-	theUsual1: string;
 	drinkWithText:string;
 	theUsualBtn;
 	theSelectedUsual:string = ""
@@ -29,14 +25,12 @@ export class DialogComponent implements OnInit {
   constructor(public service:LocalStorageService) { }
   
   firstNameInput(event){
-		// console.log('key up event: ', event);
 		let input = event.target;
 		let value = input.value;
 		this.firstName = value;
 		console.log(this.firstName)
 	}
 	lastNameInput(event){
-		// console.log('key up event: ', event);
 		let input = event.target;
 		let value = input.value;
 		this.lastName = value;
@@ -54,34 +48,18 @@ export class DialogComponent implements OnInit {
 		this.service.getLocalStorage(this.lastName, this.firstName, this.customerKnownBoolean)
 		console.log(this.firstName, this.lastName)
 	}
-
-	//TODO @Output problem
-
-	handleTheUsual(theUsualDrink:Beverages){		//TODO Funktionen som tar hand om @Outputen från Usual Child
-		// this.usualDrink = theUsualDrink
-		// console.log( 'this is the usual that you wanted last time' + this.usualDrink);
-
-		// this.theUsual1 = "The usual - " + this.selectedDrink +" coming up";
-		
-	}
-	handleTheSelected(theSelectedDrink){
-		
+	handleTheSelected(theSelectedDrink){		
 		this.selectedDrink = theSelectedDrink.name;
-		this.theUsualBtn = theSelectedDrink.name;
-		
+		this.theUsualBtn = theSelectedDrink.name;		
 		let drinkReadyTxt = ' coming right up!'
 		this.drinkWithText = 'Awesome ' + this.selectedDrink + drinkReadyTxt
 		console.log("the dia comp handleSelected()", this.selectedDrink);
 	}
-	theUsualButton(value){
-		
+	theUsualButton(value){		
 		this.theUsualBtn = this.service.getSelectedDrink()
-		console.log('detta är i knappen nu', this.theUsualBtn);
-		
+		console.log('detta är i knappen nu', this.theUsualBtn);		
 		console.log("value: ",value.target.value);
-		// this.theUsualBtn = value.target.value;
-		this.theSelectedUsual = 'the usual ' + this.theUsualBtn.name + ' comming up!'
-		
+		this.theSelectedUsual = 'The usual ' + this.theUsualBtn.name + ' comming up!'
 	}
 	getTheUsualButton(){
 		if(this.theUsualBtn == null || this.theUsualBtn == undefined){
@@ -90,15 +68,11 @@ export class DialogComponent implements OnInit {
 	}
 	
 
-  	ngOnInit() { //! Någonting gå illa här!
+  	ngOnInit() {
 		this.getStorageItem()
 		this.service.getBeverageList()
 		this.haveUsualDrink = this.service.getTheUsualBoolean()
-		this.getTheUsualButton()
-		
-		
-	
-		
+		this.getTheUsualButton()	
 		
 		if(!this.getStorageItem){
 			console.log('Nothing is inside storage ', localStorage.LastName, localStorage.customerKnownBoolean);

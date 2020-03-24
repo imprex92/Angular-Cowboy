@@ -16,8 +16,6 @@ export class LocalStorageService {
 
 	rightToBeForgotten(){
 		localStorage.clear()
-		localStorage.setItem('customerKnownBoolean', 'false')
-
 	}
 	isCustomerKnown(){
 		return JSON.parse(localStorage.getItem('customerKnownBoolean'))
@@ -54,40 +52,26 @@ export class LocalStorageService {
 	saveDrink(customDrink:string){
 		this.customDrink = customDrink;
 		localStorage.setItem('name', customDrink)
-		console.log(customDrink);
-		
+		console.log(customDrink);		
 	}
 	setSelectedDrink(selectedChoise ){
-		// let obj = {selectedChoise}
-		// localStorage.setItem('selectedDrink', JSON.stringify(obj))
 		localStorage.setItem('selectedDrink', JSON.stringify(selectedChoise))
 		localStorage.setItem('haveUsualDrink', 'true')
-
-
-
-
-		
-		// localStorage.setItem('selectedDrink', selectedChoise);
 	}
 	getSelectedDrink(){
 		return JSON.parse(localStorage.getItem('selectedDrink'))
 	}
-	getBeveragelist(defaultBeverages){
-		
+	getBeveragelist(defaultBeverages){		
 		return defaultBeverages
 	}
 	getTheUsualBoolean(){
 		return JSON.parse(localStorage.getItem('haveUsualDrink'))
 	}
-
-	getTheUsualDrink(){		
-		
+	getTheUsualDrink(){				
 		return JSON.parse(localStorage.getItem('selectedDrink'));
 	}
 	getLocalStorage(firstName: string, lastName: string, customerKnownBoolean: boolean):string {
-		
-
-		if (localStorage) {
+				if (localStorage) {
 			// We have items
 			let firstName = localStorage.getItem('Name')
 			let lastName = localStorage.getItem('LastName');
