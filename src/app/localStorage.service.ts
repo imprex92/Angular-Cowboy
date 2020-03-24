@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BeverageListService } from "./beverage-list.service";
 import { Beverages } from './beverages';
-
 
 @Injectable({
 	providedIn: 'root'
@@ -20,8 +18,6 @@ export class LocalStorageService {
 	isCustomerKnown(){
 		return JSON.parse(localStorage.getItem('customerKnownBoolean'))
 	}
-
-
 	getBeverageList(){
 		if(localStorage.getItem('defaultBeverages') == null || localStorage.getItem('defaultBeverages') == undefined){
 
@@ -29,18 +25,15 @@ export class LocalStorageService {
 
 		}
 		console.log(JSON.parse(localStorage.getItem('defaultBeverages')));
-		return JSON.parse(localStorage.getItem('defaultBeverages'))
-		
+		return JSON.parse(localStorage.getItem('defaultBeverages'))	
 		
 	}
 	
-	constructor(public beverageService: BeverageListService) { }
+	constructor() { }
 	private firstName: string;
 	private lastName: string;
-	private values: string;
 	private customDrink: string
 	private customerKnownBoolean: boolean;
-	beverageList;
 	setLocalStorage(firstName:string, lastName:string, customerKnownBoolean:boolean):any {
 		this.firstName = firstName
 		localStorage.setItem('Name', firstName);
@@ -54,14 +47,14 @@ export class LocalStorageService {
 		localStorage.setItem('name', customDrink)
 		console.log(customDrink);		
 	}
-	setSelectedDrink(selectedChoise ){
+	setSelectedDrink(selectedChoise:string){
 		localStorage.setItem('selectedDrink', JSON.stringify(selectedChoise))
 		localStorage.setItem('haveUsualDrink', 'true')
 	}
 	getSelectedDrink(){
 		return JSON.parse(localStorage.getItem('selectedDrink'))
 	}
-	getBeveragelist(defaultBeverages){		
+	getBeveragelist(defaultBeverages:Beverages[]){		
 		return defaultBeverages
 	}
 	getTheUsualBoolean(){

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { BeverageListService } from "../beverage-list.service";
+
 import { Beverages } from '../beverages';
 import { LocalStorageService } from "../localStorage.service";
 
@@ -15,7 +15,7 @@ export class SelectBeverageComponent implements OnInit {
 	defaultBeverages:Beverages[]
 	selectedDrink =  [];
 	
-	constructor(public beverageService: BeverageListService,
+	constructor(
 		public service:LocalStorageService) { }
 	getBeveragelist(){
 		this.service.getBeveragelist(this.defaultBeverages)
