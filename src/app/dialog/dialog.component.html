@@ -1,0 +1,23 @@
+
+
+<div class="container">
+	<div *ngIf="customerKnownBoolean"><h1> {{ message }}</h1></div>	
+	<div *ngIf="!customerKnownBoolean"><h1> {{message1}}</h1></div>
+	<form>
+		<input type="text" id="firstName" placeholder="Enter firstname" [disabled]="formSubmitted" (keyup)="firstNameInput($event)">
+		<input type="text" id="lastName" placeholder="Enter lastname" [disabled]="formSubmitted" (keyup)="lastNameInput($event)">
+	</form>
+	<p></p>
+	<button type="submit" id="nameSubmitButton" [disabled]="clickedButton"  (click)="handleSaveName()">Submit Name</button>
+</div>
+
+<div class="selectedDrinkArea"> 
+	<span> {{ drinkWithText }}  </span> 
+	<span> {{ theSelectedUsual }} </span>
+</div>
+
+<ng-container *ngIf="haveUsualDrink">
+	<button id="usualButton" value="{{ theUsualBtn }}" (click)="theUsualButton($event)"> The Usual </button>	
+</ng-container>
+
+<app-select-beverage *ngIf="customerKnownBoolean" (choosenDrink)="handleTheSelected($event)"></app-select-beverage>

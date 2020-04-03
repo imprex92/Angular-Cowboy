@@ -1,0 +1,13 @@
+<div class="beveragesList" *ngFor="let beverage of defaultBeverages">
+	<div class="beveragesItem">
+		{{beverage.name}} 
+			<button id="selectButton" type="submit" (click)="userChoice(beverage)">
+				Select drink
+			</button>
+	</div>
+</div>
+<div id="proposeContainer">
+	<input type="text" placeholder="Custom drink" id="CustomDrinkButton" (keyup)="customDrinkInput($event)">
+	
+	<button id="proposeButton" type="submit" (click)="submitDrink()" (click)="saveDrink(customDrink)">Propose drink</button>
+</div>
