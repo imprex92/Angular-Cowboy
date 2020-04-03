@@ -6,6 +6,7 @@ import { LocalStorageService } from "../localStorage.service";
   styleUrls: ['./right-to-be-forgotten.component.css']
 })
 export class RightToBeForgottenComponent implements OnInit {
+  public buttonText = 'I want to be forgotten!'
   public messageEmit:string = 'Oh right! Who were you again?'
   constructor(public service:LocalStorageService) { }
   customerKnownBoolean: boolean;
@@ -19,6 +20,7 @@ export class RightToBeForgottenComponent implements OnInit {
   sendToParent(){
     this.event.emit(this.messageEmit)
     this.service.rightToBeForgotten()
+    this.buttonText = 'Jesus, who are you!?'
   }
   
 }

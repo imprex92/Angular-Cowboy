@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BeverageListService } from "./beverage-list.service";
 import { Beverages } from './beverages';
-
 
 @Injectable({
 	providedIn: 'root'
@@ -16,14 +14,10 @@ export class LocalStorageService {
 
 	rightToBeForgotten(){
 		localStorage.clear()
-		localStorage.setItem('customerKnownBoolean', 'false')
-
 	}
 	isCustomerKnown(){
 		return JSON.parse(localStorage.getItem('customerKnownBoolean'))
 	}
-
-
 	getBeverageList(){
 		if(localStorage.getItem('defaultBeverages') == null || localStorage.getItem('defaultBeverages') == undefined){
 
@@ -31,18 +25,15 @@ export class LocalStorageService {
 
 		}
 		console.log(JSON.parse(localStorage.getItem('defaultBeverages')));
-		return JSON.parse(localStorage.getItem('defaultBeverages'))
-		
+		return JSON.parse(localStorage.getItem('defaultBeverages'))	
 		
 	}
 	
-	constructor(public beverageService: BeverageListService) { }
+	constructor() { }
 	private firstName: string;
 	private lastName: string;
-	private values: string;
 	private customDrink: string
 	private customerKnownBoolean: boolean;
-	beverageList;
 	setLocalStorage(firstName:string, lastName:string, customerKnownBoolean:boolean):any {
 		this.firstName = firstName
 		localStorage.setItem('Name', firstName);
@@ -54,40 +45,26 @@ export class LocalStorageService {
 	saveDrink(customDrink:string){
 		this.customDrink = customDrink;
 		localStorage.setItem('name', customDrink)
-		console.log(customDrink);
-		
+		console.log(customDrink);		
 	}
-	setSelectedDrink(selectedChoise ){
-		// let obj = {selectedChoise}
-		// localStorage.setItem('selectedDrink', JSON.stringify(obj))
+	setSelectedDrink(selectedChoise:string){
 		localStorage.setItem('selectedDrink', JSON.stringify(selectedChoise))
 		localStorage.setItem('haveUsualDrink', 'true')
-
-
-
-
-		
-		// localStorage.setItem('selectedDrink', selectedChoise);
 	}
 	getSelectedDrink(){
 		return JSON.parse(localStorage.getItem('selectedDrink'))
 	}
-	getBeveragelist(defaultBeverages){
-		
+	getBeveragelist(defaultBeverages:Beverages[]){		
 		return defaultBeverages
 	}
 	getTheUsualBoolean(){
 		return JSON.parse(localStorage.getItem('haveUsualDrink'))
 	}
-
-	getTheUsualDrink(){		
-		
+	getTheUsualDrink(){				
 		return JSON.parse(localStorage.getItem('selectedDrink'));
 	}
 	getLocalStorage(firstName: string, lastName: string, customerKnownBoolean: boolean):string {
-		
-
-		if (localStorage) {
+				if (localStorage) {
 			// We have items
 			let firstName = localStorage.getItem('Name')
 			let lastName = localStorage.getItem('LastName');
